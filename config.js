@@ -5,9 +5,9 @@ const warning = chalk.keyword('orange');
 
 module.exports = (() => {	 
 	let devEnv = {
-		PORT: 8080,
+		PORT: 8081,
 		DB_URL: 'mongodb://localhost:27017/mean_demo_db',
-		whitelist: ['http://127.0.0.1:8080']
+		whitelist: ['http://127.0.0.1:8081']
 	};
 
 	let prodEnv = {

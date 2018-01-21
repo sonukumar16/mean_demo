@@ -1,0 +1,132 @@
+<div class="container">
+    <div class="col-sm-8 col-sm-offset-2">
+         <!-- PAGE HEADER -->
+      <div class="page-header"><h1>Registration Page</h1></div>
+      <form name="userForm" ng-submit="submitForm()"  novalidate>
+          <div  class="form-group">
+                   <label for="profile_pic">Profile Photo:</label>
+                   <input  onchange="angular.element(this).scope().imageChange(this)"
+                      type="file" accept="image/*" />
+                   <!--  <img class="thumb" ng-src="{{image_source}}" style="width: 40%;border-radius: 50%;" />  --> <!-- {{image_source}} --> 
+          
+           </div>      
+        <!-- NAME -->
+          <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+              <label>Name</label>
+              <input type="text" name="name" class="form-control" ng-model="myform.name" required>
+                <p ng-show="userForm.name.$invalid && userForm.name.$dirty" class="help-block">You name is required.</p>
+          </div>
+
+       <!-- Password -->
+         <div class="form-group" ng-class="{'has-error':userForm.password.$invalid && !userForm.password.$pristine}">
+           <label for="password">Password</label>
+           <input type="password" name="password" class="form-control" ng-model="myform.password" required>
+           <p ng-show="userForm.password.$invalid && !userForm.password.$pristine" class="help-block"> Enter Password</p>
+         </div>
+          
+        <!-- EMAIL -->
+          <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+              <label>Email</label>
+              <input type="email" name="email" class="form-control" ng-model="myform.email" required>
+              <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+          </div>
+
+            
+            <!-- // phone number -->
+           <div class="form-group">
+              <label >Phone :</label>
+              <input type="text" class="form-control" ng-minlength="10" ng-maxlength="10" name="phone"  placeholder="Phone" ng-model="myform.phone" ng-required="true">
+                    <span ng-show="userForm.phone.$dirty && userForm.phone.$invalid">
+                     <span class="help-block" ng-show="userForm.phone.$error.required">Valid phone number is required</span>
+                      <span class="help-block" ng-show="((userForm.phone.$error.minlength || userForm.phone.$error.maxlength) && userForm.phone.$dirty)"> phone number should be 10 digits </span>
+                      </span>
+           </div>
+        
+           <!-- RADIO BUTTONS -->
+            <label>Gender</label>
+            <div class="form-group">
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="gender" value="Male" ng-model="myform.gender">
+                        Male
+                    </label>
+                </div>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="gender" value="Female" ng-model="myform.gender">
+                       Female
+                    </label>
+                </div>
+            </div>
+
+        <!-- SUBMIT BUTTON -->  <!-- data-target="#myModal" -->
+            <button type="submit" class="btn btn-primary" data-toggle="modal"  ng-disabled="userForm.$invalid" data-backdrop="false">Submit</button>
+            <span style="margin: 20px"><a ui-sref="login">Login</a></span>   
+        </form>
+
+
+
+
+        <div> 
+            <form>
+              <input type="file" name="files" file-model="myFile" />
+              <button ng-click = "uploadFile()">Submit</button>
+            </form>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- model-window -->
+        <div class="modal fade" id="myModal" role="dialog">
+           <div class="modal-dialog">
+    
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+              </div>
+              <div class="modal-body">
+              <form name="modelForm">
+                <input type="text" placeholder="Enter Your OTP" ng-model="OTP">
+                 <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-ok" ng-click="verify()"></span> Verify</button>
+                  <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-send"></span> Resend</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+      
+          </div>
+        </div>
+    </div><!-- col-sm-8-->
+</div><!-- container -->

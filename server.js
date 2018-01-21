@@ -1,9 +1,9 @@
-/* Require third parties modules */
+/* Require third parties adn node's code  modules */
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const chalk = require('chalk');
-
+const path = require('path');
 
 /* Require own modules */
 
@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 let api = '/api/' +'v1/';
 app.use(api,baiscRoute);
-
+app.use(express.static(path.join(__dirname,'client')));
 
 app.use(function(err, req, res, next) {
 	 log(chalk `{red error handler function --->>}`,err);
