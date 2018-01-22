@@ -1,1 +1,1 @@
-let app = angular.module('myApp',['ui-router']);
+let app = angular.module('myApp',['ui.router']);
