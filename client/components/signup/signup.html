@@ -1,44 +1,52 @@
  <div class="container">
  	<div class="col-sm-8 col-sm-offset-2">
  		<div class="page-header"><h1>Registration Page</h1></div>
-	 		<form name="userForm" ng-submit="submitForm()" novalidate>
-	 			<div  class="form-group" onchange="angular.element(this).scope().changeimg(this)">
+	 		<form name="userForm" novalidate>
+	 			<!-- <div  class="form-group" onchange="angular.element(this).scope().changeimg(this)">
 	                   <label for="profile_pic">Profile Photo:</label>
 	                   <img  class="img-circle" id="output" src="{{image}}" style="width:100px;height: 100px;">
 	                   <div class="btn btn-primary">
 	                   	 <span>Upload Image</span>
 							<input type="file" file-model = "myFile" name="file" onchange="angular.element(this).scope().loadFile(event)" accept="image/*">
 	                   </div>
-	           </div>  
+	           </div>  --> 
 	           <div class="form-group">
 	           	    <label class="col-sm-6"> User Name </label>
-		           	<input class="form-control" type="text" name="fullName" ng-model="myform.name" placeholder="Enter full name" ng-pattern ='/^[a-zA-Z\s]$/' ng-maxlength='40' maxlength="41" required/>
-		           		<span class="error" ng-show="userForm.fullName.$dirty && userForm.fullName.$invalid">
+		           	<input class="form-control" type="text" name="fullName" ng-model="myForm.name" placeholder="Enter full name" ng-pattern ='/^[a-zA-Z\s]$/' ng-maxlength='40' maxlength="41" required/>
+		           		<!-- <span class="error" ng-show="userForm.fullName.$dirty && userForm.fullName.$invalid">
 		           			<span class="error" ng-show="userForm.fullName.$error.required">FullName is required.</span>
 		           			<span class="error" ng-show="userForm.fullName.$error.pattern">Only letters are allowed.</span>
 		           			<span class="error" ng-show="userForm.fullName.$error.maxlength">Please enter full name shorter than 40 characters</span>
-		           		</span>
+		           		</span> -->
 	           </div>
 	           <div class="form-group clearfix">
                     <label class="col-sm-6">Email Id</label>
                     <div class="col-sm-6">
                         <input name="email" class="form-control" ng-model="myForm.email" placeholder="Enter Email Address" ng-maxlength="80" maxlength="81" ng-pattern = '/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i' required/>
-                         <span class="error" ng-show="userForm.email.$dirty && userForm.email.$invalid">
+                         <!-- <span class="error" ng-show="userForm.email.$dirty && userForm.email.$invalid">
                           <span class="error" ng-show="userForm.email.$error.required">Email is required.</span>
                           <span class="error" ng-show="userForm.email.$error.email || userForm.email.$error.pattern">Invalid email address.</span>
                           <span class="error" ng-show=" userForm.email.$error.maxlength">Please enter email shorter than 80 characters</span>
-                          </span> 
+                          </span> --> 
                     </div>                   
-               </div>
+               </div><div class="form-group">
+	           	    <label class="col-sm-6">Password</label>
+		           	<input class="form-control" type="password" name="password" ng-model="myForm.password" placeholder="Enter password"  ng-maxlength='16' maxlength="6" required/>
+		           		<!-- <span class="error" ng-show="userForm.fullName.$dirty && userForm.fullName.$invalid">
+		           			<span class="error" ng-show="userForm.fullName.$error.required">FullName is required.</span>
+		           			<span class="error" ng-show="userForm.fullName.$error.pattern">Only letters are allowed.</span>
+		           			<span class="error" ng-show="userForm.fullName.$error.maxlength">Please enter full name shorter than 40 characters</span>
+		           		</span> -->
+	           </div>
               <div class="form-group clearfix">
                    <label class="col-sm-6">Phone Number</label>
                    <div class="col-sm-6">                             
 	                 <input type="text" name="phoneNumber" class="form-control" ng-model="myForm.mobile" placeholder="Phone Number" ng-minlength="10"  ng-maxlength="15" maxlength="15" ng-pattern="/^[0-9]{1,15}$/" required="">
-	                  <span class="error" ng-show="userForm.phoneNumber.$dirty && userForm.phoneNumber.$invalid">
+	                  <!-- <span class="error" ng-show="userForm.phoneNumber.$dirty && userForm.phoneNumber.$invalid">
 		                  <span class="error" ng-show="userForm.phoneNumber.$error.required">Phone number is required.</span>
 		                  <span class="error" ng-show=" userForm.phoneNumber.$error.maxlength || userForm.phoneNumber.$error.minlength">Phone Number must be of 10-15 digits.</span>
 		                 <span class="error" ng-if="userForm.phoneNumber.$error.pattern">Only numeric value are allowed.</span>
-	                  </span> 
+	                  </span>  -->
                     </div>              
               </div>
               <div class="form-group clearfix">
@@ -52,7 +60,8 @@
               </div>
 	 	</form>
  	</div>
+ 	<!-- ng-disabled="userForm.$invalid || myForm.type=='Select'" -->
  	<div class="text-center m-t-20">
-        <button class="btn btn-primary global-btn" ng-click="signup()" ng-disabled="userForm.$invalid || myForm.type=='Select'">Sign Up</button>
+        <button class="btn btn-primary global-btn" ng-click="signup()" >Sign Up</button>
     </div>
  </div>

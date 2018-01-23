@@ -20,6 +20,7 @@ function requiredRequest(body, res, next) {
 
 module.exports = {
     signup: (req, res, next) => {
+        log("req.body of signup-->>",req.body);
         requiredRequest(req.body, res, (data) => {
             log('callback data of signup---', data);
             if (data) {

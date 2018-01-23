@@ -20,7 +20,7 @@ const log = console.log;
 
 app.use(bodyParser.json());
 app.use(morgan('dev'));
-let api = '/api/' +'v1/';
+let api = '/api/' +'v1';
 app.use(api,baiscRoute);
 app.use(express.static(path.join(__dirname,'client')));
 
